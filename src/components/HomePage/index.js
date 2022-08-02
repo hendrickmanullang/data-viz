@@ -1,8 +1,10 @@
+import { TextField } from "@mui/material"
+
 const HomePage = () => {
   return (
   <>
-  <p>Look up a stock ticker:</p>
-  <input></input>
+  <h1>Look up a stock:</h1>
+  <TextField id="standard-basic" label="Ticker" variant="standard" />
   <button>Submit</button>
   </>
   )
