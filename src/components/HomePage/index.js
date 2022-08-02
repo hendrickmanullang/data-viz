@@ -1,6 +1,10 @@
 const HomePage = () => {
   return (
-  <p>This is home</p>
+  <>
+  <p>Look up a stock ticker:</p>
+  <input></input>
+  <button>Submit</button>
+  </>
   )
 }
 
