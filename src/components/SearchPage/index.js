@@ -5,7 +5,7 @@ import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
 const API_KEY = process.env.REACT_APP_API_KEY
 
-const HomePage = () => {
+const SearchPage = () => {
   const [queryString, setQueryString] = useState('')
   const [stockList, setStockList] = useState([])
   const url= `https://financialmodelingprep.com/api/v3/search-name?query=${queryString}&limit=10&exchange=NASDAQ&apikey=${API_KEY}`
@@ -50,11 +50,11 @@ const HomePage = () => {
     spacing={1}
     >
   {
-    stockList.map(stock => (
+    stockList.map((stock, index) => (
       <SearchResults
+        key={index}
         name={stock.name}
         symbol={stock.symbol}
-        stockExchange={stock.stockExchange}
       />
     ))
   }
@@ -63,4 +63,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default SearchPage
