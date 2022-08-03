@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import HomePage from "../HomePage";
+import SearchPage from "../SearchPage";
 import './index.css'
 
 const App = () => {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<SearchPage />} />
     </Routes>
     </BrowserRouter>
   )
