@@ -4,20 +4,21 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 const StockDetail = () => {
 const { ticker } = useParams()
-const [ stock , setStock] = useState([])
+const [stock, setStock] = useState(null)
 
 useEffect(() => {
   const url= `https://financialmodelingprep.com/api/v3/quote/${ticker}?apikey=${API_KEY}`
   fetch(url)
-    .then((response) => response.json())
+    .then((res) => res.json())
     .then((data) => setStock(data))
     .catch((error) => console.error(error))
 }, [ticker])
 
-console.log(stock.price)
-
-return (<p>{stock[0].name} | stock price: {stock[0].price}</p>)
-
+if (stock) {
+  return (<p>{stock[0].name}</p>)
+  } else {
+  return (<p>loading...</p>)
+}
 }
 
 export default StockDetail
