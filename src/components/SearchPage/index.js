@@ -29,7 +29,7 @@ const SearchPage = () => {
     alignItems="center"
     spacing={2}
     >
-  <h1>Look up a company:</h1>
+  <h1>Look up a company*:</h1>
   <form onSubmit={handleSubmit}>
   <TextField
     id="standard-basic"
@@ -49,6 +49,7 @@ const SearchPage = () => {
     alignItems="center"
     spacing={1}
     >
+  <p><em>*NASDAQ only</em></p>
   {
     stockList.map((stock, index) => (
       <SearchResults
