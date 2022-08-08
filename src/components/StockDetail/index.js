@@ -27,7 +27,8 @@ const StockDetail = () => {
   if (stockPrice && stockNews) {
     return (
       <>
-        <h1>{stockPrice[0].name}, current price: ${stockPrice[0].price}</h1>
+        <h1>{stockPrice[0].name}</h1>
+        <h2>Current price: ${stockPrice[0].price}</h2>
         <strong><p>Latest News:</p></strong>
             {
               stockNews.map((article, index) => (
