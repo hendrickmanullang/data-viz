@@ -4,7 +4,6 @@ import { Link, Outlet} from "react-router-dom"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const SearchPage = () => {
@@ -53,22 +52,18 @@ const SearchPage = () => {
       >
     <p><em>*NASDAQ only</em></p>
     </Stack>
+    <div className="search-results">
     {
       stockList.map((stock, index) => (
-        <Stack
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={1}>
         <SearchResults
           key={index}
           name={stock.name}
           symbol={stock.symbol}
-        /><Link to={`/ticker/${stock.symbol}`}><KeyboardArrowRightIcon/></Link>
-        </Stack>
+        />
       ))
     }
-    <div>
+    </div>
+    <div className="stock-detail">
       <Outlet/>
     </div>
   </>
