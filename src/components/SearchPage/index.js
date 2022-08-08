@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
@@ -25,58 +25,54 @@ const SearchPage = () => {
 
   return (
   <>
-  <Stack
-    direction="row"
-    justifyContent="center"
-    alignItems="center"
-    spacing={2}
-    >
-  <h1>Look up a company*:</h1>
-  <form onSubmit={handleSubmit}>
-  <TextField
-    id="standard-basic"
-    label="Company name"
-    variant="standard"
-    onChange={(e) => setQueryString(e.target.value)}
-  />
-  <Button
-    type="submit"
-    variant="contained"
-    >Search</Button>
-  </form>
-  </Stack>
-  <Stack
-    direction="column"
-    justifyContent="center"
-    alignItems="center"
-    spacing={1}
-    >
-  <p><em>*NASDAQ only</em></p>
-  </Stack>
-  <Stack
-    direction="column"
-    justifyContent="center"
-    alignItems="center"
-    spacing={1}
-  >
-  {
-    stockList.map((stock, index) => (
-      <>
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={1}>
-      <SearchResults
-        key={index}
-        name={stock.name}
-        symbol={stock.symbol}
-      /><Link to={`/ticker/${stock.symbol}`}><KeyboardArrowRightIcon/></Link>
-      </Stack>
-      </>
-    ))
-  }
-  </Stack>
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}
+      >
+    <h1>Look up a company*:</h1>
+    <form onSubmit={handleSubmit}>
+    <TextField
+      id="standard-basic"
+      label="Company name"
+      variant="standard"
+      onChange={(e) => setQueryString(e.target.value)}
+    />
+    <Button
+      type="submit"
+      variant="contained"
+      >Search</Button>
+    </form>
+    </Stack>
+    <Stack
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      spacing={0}
+      >
+    <p><em>*NASDAQ only</em></p>
+    </Stack>
+    {
+      stockList.map((stock, index) => (
+        <>
+        <Stack
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="center"
+          spacing={1}>
+        <SearchResults
+          key={index}
+          name={stock.name}
+          symbol={stock.symbol}
+        /><Link to={`/ticker/${stock.symbol}`}><KeyboardArrowRightIcon/></Link>
+        </Stack>
+        </>
+      ))
+    }
+    <div>
+      <Outlet />
+    </div>
   </>
   )
 }

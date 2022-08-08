@@ -1,3 +1,5 @@
+import "./index.css"
+
 const SearchResults = (
   {
     name,
@@ -6,7 +8,10 @@ const SearchResults = (
 ) => {
 
   return (
-    <p><strong>{name}</strong> | Symbol: <strong>{symbol}</strong></p>
+    <div className="stock-search">
+      <p><strong>Company:</strong> {name}</p>
+      <p><strong>Symbol:</strong> {symbol}</p>
+    </div>
   )
 }
 
