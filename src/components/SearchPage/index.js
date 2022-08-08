@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material"
 import { useState } from "react"
-import { Link, Outlet} from "react-router-dom"
+import { Outlet} from "react-router-dom"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
