@@ -53,7 +53,7 @@ const SearchPage = () => {
       >
     </Stack>
     <Grid container spacing={0}>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
     {
       stockList.map((stock, index) => (
         <SearchResults
@@ -64,7 +64,7 @@ const SearchPage = () => {
       ))
     }
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <Outlet/>
       </Grid>
     </Grid>

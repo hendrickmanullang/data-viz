@@ -16,7 +16,7 @@ const SearchResults = (
       alignItems="center"
       spacing={1}
     >
-      <p><strong>Company:</strong> {name}</p>
+      <p>{name}</p>
       <p><strong>Symbol:</strong> {symbol}</p>
       <Link to={`/${symbol}`}><KeyboardArrowRightIcon/></Link>
     </Stack>

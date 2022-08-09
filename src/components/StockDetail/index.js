@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Card, Grid, CardActions, Stack, Typography } from "@mui/material"
+import { ButtonGroup, Card, CardActions, Stack, Typography } from "@mui/material"
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import LineChart from "../LineChart"
@@ -10,8 +10,9 @@ const StockDetail = () => {
   const { ticker } = useParams()
   const [stockPrice , setStockPrice] = useState(null)
   const [stockNews, setStockNews] = useState(null)
-  const [stockHistoricalPrice, setStockHistoricalPrice] = useState([]);
-  const [date, setDate] = useState([]);
+  const [searchDate, setSearchDate] = useState({})
+  const [stockHistoricalPrice, setStockHistoricalPrice] = useState([])
+  const [date, setDate] = useState([])
 
   useEffect(() => {
     const priceEndPoint= `https://financialmodelingprep.com/api/v3/quote/${ticker}?apikey=${API_KEY}`
@@ -42,6 +43,11 @@ const StockDetail = () => {
     return (
       <>
         <h1>{stockPrice[0].name}</h1>
+        View: <ButtonGroup variant="text" aria-label="text button group">
+          <Button onClick={() => console.log("month")}>Month</Button>
+          <Button onClick={() => console.log("year")}>Year</Button>
+          <Button onClick={() => console.log("5 Year")}>5 Year</Button>
+        </ButtonGroup>
         <LineChart
           price={stockHistoricalPrice}
           date={date}
