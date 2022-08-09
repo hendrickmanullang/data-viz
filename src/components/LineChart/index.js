@@ -1,0 +1,29 @@
+import Chart from 'react-apexcharts'
+
+const LineChart = ({price, date}) => {
+
+  const series = [ //data on the y-axis
+    {
+      name: "Stock price",
+      data: [...price].reverse() // endpoint outputs date and price in reverse chronological order
+    }
+  ];
+
+  const options = { //data on the x-axis
+    chart: { id: 'stock price time series'},
+    xaxis: {
+      categories: [...date].reverse() // endpoint outputs date and price in reverse chronological order
+    }
+  };
+
+    return (
+      <Chart
+        options={options}
+        series={series}
+        type="line"
+        width={500}
+        height={320} />
+    )
+}
+
+export default LineChart

@@ -3,16 +3,20 @@ import { useEffect, useState } from "react"
 import { Card, Grid, CardActions, Typography } from "@mui/material"
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
+import LineChart from "../LineChart"
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const StockDetail = () => {
   const { ticker } = useParams()
   const [stockPrice , setStockPrice] = useState(null)
   const [stockNews, setStockNews] = useState(null)
+  const [stockHistoricalPrice, setStockHistoricalPrice] = useState([]);
+  const [date, setDate] = useState([]);
 
   useEffect(() => {
     const priceEndPoint= `https://financialmodelingprep.com/api/v3/quote/${ticker}?apikey=${API_KEY}`
     const newsEndPoint= `https://financialmodelingprep.com/api/v3/stock_news?tickers=${ticker}&limit=3&apikey=${API_KEY}`
+    const historicalPriceEndPoint= `https://financialmodelingprep.com/api/v3/historical-price-full/${ticker}?from=2021-08-09&to=2022-08-09&apikey=${API_KEY}`
 
     fetch(priceEndPoint)
       .then((priceResponse) => priceResponse.json())
@@ -24,6 +28,14 @@ const StockDetail = () => {
       .then((newsData) => setStockNews(newsData))
       .catch((newsError) => console.error(newsError))
 
+    fetch(historicalPriceEndPoint)
+    .then((historicalpPriceResponse) => historicalpPriceResponse.json())
+    .then((priceHistoricalData) => {
+      setStockHistoricalPrice(priceHistoricalData.historical.map((item) => item.close))
+      setDate(priceHistoricalData.historical.map((item) => item.date))
+      })
+    .catch((historicalPriceError) => console.error(historicalPriceError))
+
   }, [ticker])
 
   if (stockPrice && stockNews) {
@@ -31,6 +43,10 @@ const StockDetail = () => {
       <>
         <h1>{stockPrice[0].name}</h1>
         <h2>Current price: ${Number.parseFloat(stockPrice[0].price).toFixed(2)}</h2>
+        <LineChart
+          price={stockHistoricalPrice}
+          date={date}
+        />
         <strong><p>In the News:</p></strong>
           <Grid container rowSpacing={1}>
             <Grid item xs={3}>
@@ -48,7 +64,7 @@ const StockDetail = () => {
                 </Card>
                 ))
               }
-            </Grid>
+              </Grid>
           </Grid>
       </>
     )
