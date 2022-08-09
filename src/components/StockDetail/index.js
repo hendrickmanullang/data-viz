@@ -42,7 +42,7 @@ const StockDetail = () => {
       })
     .catch((historicalPriceError) => console.error(historicalPriceError))
 
-  }, [ticker])
+  }, [ticker, currentDateISO, defaultSearchDateISO])
 
   if (stockPrice && stockNews) {
     return (
