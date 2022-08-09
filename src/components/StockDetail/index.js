@@ -23,7 +23,6 @@ const StockDetail = () => {
       .then((newsResponse) => newsResponse.json())
       .then((newsData) => setStockNews(newsData))
       .catch((newsError) => console.error(newsError))
-
   }, [ticker])
 
   if (stockPrice && stockNews) {
@@ -34,20 +33,20 @@ const StockDetail = () => {
         <strong><p>In the News:</p></strong>
           <Grid container rowSpacing={1}>
             <Grid item xs={3}>
-          {
-            stockNews.map((article, index) => (
-            <Card sx={{ width: '100%' }} key={index}>
-              <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {article.title}
-              </Typography>
-                <CardActions>
-                  <Button size="small" href={article.url}>Read More</Button>
-                </CardActions>
-              </CardContent>
-            </Card>
-            ))
-          }
+              {
+                stockNews.map((article, index) => (
+                <Card sx={{ width: '100%' }} key={index}>
+                  <CardContent>
+                  <Typography variant="body2" color="text.secondary">
+                    {article.title}
+                  </Typography>
+                    <CardActions>
+                      <Button size="small" href={article.url}>Read More</Button>
+                    </CardActions>
+                  </CardContent>
+                </Card>
+                ))
+              }
             </Grid>
           </Grid>
       </>
