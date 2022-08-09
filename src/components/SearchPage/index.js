@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid'
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const SearchPage = () => {
@@ -64,9 +64,9 @@ const SearchPage = () => {
       ))
     }
       </Grid>
-    <Grid item xs={6}>
-      <Outlet/>
-    </Grid>
+      <Grid item xs={6}>
+        <Outlet/>
+      </Grid>
     </Grid>
   </>
   )

@@ -1,4 +1,3 @@
-import "./index.css"
 import Stack from "@mui/material/Stack"
 import { Link } from "react-router-dom"
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
