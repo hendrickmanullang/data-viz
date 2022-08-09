@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
+import Grid from '@mui/material/Grid';
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const SearchPage = () => {
@@ -30,7 +31,7 @@ const SearchPage = () => {
       alignItems="center"
       spacing={2}
       >
-    <h1>Look up a company*:</h1>
+    <h1>Look up a company:</h1>
     <form onSubmit={handleSubmit}>
     <TextField
       id="standard-basic"
@@ -50,9 +51,9 @@ const SearchPage = () => {
       alignItems="center"
       spacing={0}
       >
-    <p><em>*NASDAQ only</em></p>
     </Stack>
-    <div className="search-results">
+    <Grid container spacing={2}>
+      <Grid item xs={6}>
     {
       stockList.map((stock, index) => (
         <SearchResults
@@ -62,10 +63,11 @@ const SearchPage = () => {
         />
       ))
     }
-    </div>
-    <div className="stock-detail">
+      </Grid>
+    <Grid item xs={6}>
       <Outlet/>
-    </div>
+    </Grid>
+    </Grid>
   </>
   )
 }
