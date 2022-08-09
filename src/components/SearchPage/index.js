@@ -13,10 +13,10 @@ const SearchPage = () => {
   const url= `https://financialmodelingprep.com/api/v3/search-name?query=${queryString}&limit=10&exchange=NASDAQ&apikey=${API_KEY}`
   const handleSubmit = (e) => {
     e.preventDefault()
-    loadStocks()
+    loadCompanySearchResults()
   }
 
-  const loadStocks = () => {
+  const loadCompanySearchResults = () => {
     fetch(url)
     .then(response => {return response.json()})
     .then(data => {setStockList(data)})
@@ -52,7 +52,7 @@ const SearchPage = () => {
       spacing={0}
       >
     </Stack>
-    <Grid container spacing={2}>
+    <Grid container spacing={0}>
       <Grid item xs={6}>
     {
       stockList.map((stock, index) => (

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Card, Grid, CardActions, Typography } from "@mui/material"
+import { Card, Grid, CardActions, Stack, Typography } from "@mui/material"
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import LineChart from "../LineChart"
@@ -42,30 +42,27 @@ const StockDetail = () => {
     return (
       <>
         <h1>{stockPrice[0].name}</h1>
-        <h2>Current price: ${Number.parseFloat(stockPrice[0].price).toFixed(2)}</h2>
         <LineChart
           price={stockHistoricalPrice}
           date={date}
         />
         <strong><p>In the News:</p></strong>
-          <Grid container rowSpacing={1}>
-            <Grid item xs={3}>
-              {
-                stockNews.map((article, index) => (
-                <Card sx={{ width: '100%' }} key={index}>
-                  <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    {article.title}
-                  </Typography>
-                    <CardActions>
-                      <Button size="small" href={article.url}>Read More</Button>
-                    </CardActions>
-                  </CardContent>
-                </Card>
-                ))
-              }
-              </Grid>
-          </Grid>
+        <Stack direction="row" spacing={2}>
+          {
+            stockNews.map((article, index) => (
+            <Card sx={{ width: '100%' }} key={index}>
+              <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                {article.title}
+              </Typography>
+                <CardActions>
+                  <Button size="small" href={article.url}>Read More</Button>
+                </CardActions>
+              </CardContent>
+            </Card>
+            ))
+          }
+        </Stack>
       </>
     )
     } else {
