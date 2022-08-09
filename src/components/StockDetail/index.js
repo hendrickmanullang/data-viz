@@ -30,7 +30,7 @@ const StockDetail = () => {
     return (
       <>
         <h1>{stockPrice[0].name}</h1>
-        <h2>Current price: ${stockPrice[0].price}</h2>
+        <h2>Current price: ${Number.parseFloat(stockPrice[0].price).toFixed(2)}</h2>
         <strong><p>Latest News:</p></strong>
           {
             stockNews.map((article, index) => (
