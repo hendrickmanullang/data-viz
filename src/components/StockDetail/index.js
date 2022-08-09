@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import StockNews from "../StockNews";
-import { Card } from "@mui/material";
-import CardContent from '@mui/material/CardContent';
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Card, Grid, CardActions, Typography } from "@mui/material"
+import CardContent from '@mui/material/CardContent'
+import Button from '@mui/material/Button'
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const StockDetail = () => {
@@ -31,20 +31,25 @@ const StockDetail = () => {
       <>
         <h1>{stockPrice[0].name}</h1>
         <h2>Current price: ${Number.parseFloat(stockPrice[0].price).toFixed(2)}</h2>
-        <strong><p>Latest News:</p></strong>
+        <strong><p>In the News:</p></strong>
+          <Grid container rowSpacing={1}>
+            <Grid item xs={3}>
           {
             stockNews.map((article, index) => (
-            <Card sx={{ maxWidth: 275 }}>
+            <Card sx={{ width: '100%' }} key={index}>
               <CardContent>
-              <StockNews
-                key={index}
-                title={article.title}
-                url={article.url}
-              />
+              <Typography variant="body2" color="text.secondary">
+                {article.title}
+              </Typography>
+                <CardActions>
+                  <Button size="small" href={article.url}>Read More</Button>
+                </CardActions>
               </CardContent>
             </Card>
             ))
           }
+            </Grid>
+          </Grid>
       </>
     )
     } else {
