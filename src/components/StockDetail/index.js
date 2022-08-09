@@ -23,6 +23,7 @@ const StockDetail = () => {
       .then((newsResponse) => newsResponse.json())
       .then((newsData) => setStockNews(newsData))
       .catch((newsError) => console.error(newsError))
+
   }, [ticker])
 
   if (stockPrice && stockNews) {
