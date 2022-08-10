@@ -30,7 +30,7 @@ const SearchPage = () => {
         <h1>Look up a company:</h1>
         <form onSubmit={handleSubmit}>
           <Stack direction="row">
-            <TextField id="standard-basic" label="Company name" variant="standard"
+            <TextField id="company-input" label="Company name" variant="standard"
               onChange={(e) => setQueryString(e.target.value)}
             />
             <Button type="submit" variant="contained">Search</Button>
