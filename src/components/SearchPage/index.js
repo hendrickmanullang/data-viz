@@ -22,14 +22,16 @@ const SearchPage = () => {
 
   return (
   <>
-    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} >
-      <h1>Look up a company:</h1>
-      <form onSubmit={handleSubmit}>
-        <TextField id="standard-basic" label="Company name" variant="standard"
-          onChange={(e) => setQueryString(e.target.value)}
-        />
-        <Button type="submit" variant="contained">Search</Button>
-      </form>
+    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+        <h1>Look up a company:</h1>
+        <form onSubmit={handleSubmit}>
+          <Stack direction="row">
+            <TextField id="standard-basic" label="Company name" variant="standard"
+              onChange={(e) => setQueryString(e.target.value)}
+            />
+            <Button type="submit" variant="contained">Search</Button>
+          </Stack>
+        </form>
     </Stack>
 
     <Grid container spacing={0}>
