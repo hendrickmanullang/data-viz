@@ -24,7 +24,7 @@ const SearchPage = () => {
   <>
     <Box
       sx={{
-        backgroundColor: '#B5B682',
+        backgroundColor: '#E9EDE9',
       }}>
       <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
         <h1>Look up a company:</h1>
