@@ -63,18 +63,17 @@ const StockDetail = () => {
   if (stockPrice && stockNews) {
     return (
       <>
-      <Container>
         <h1>{stockPrice[0].name}</h1>
-        View: <ButtonGroup variant="text" aria-label="stock price time frame">
+        <Container>View: <ButtonGroup variant="text" aria-label="stock price time frame">
           <Button onClick={() => handleHistoryView(1)}>Month</Button>
           <Button onClick={() => handleHistoryView()}>Year</Button>
           <Button onClick={() => handleHistoryView(2)}>5 Year</Button>
         </ButtonGroup>
+        </Container>
         <LineChart
           price={stockHistoricalPrice}
           date={date}
         />
-      </Container>
         <strong><p>In the News:</p></strong>
         <Stack direction="row" spacing={2}>
           {

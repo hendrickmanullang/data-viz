@@ -21,7 +21,7 @@ const LineChart = ({price, date}) => {
         options={options}
         series={series}
         type="line"
-        width={500}
+        width={900}
         height={320} />
     )
 }
