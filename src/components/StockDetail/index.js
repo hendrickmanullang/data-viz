@@ -73,6 +73,7 @@ const StockDetail = () => {
         <LineChart
           price={stockHistoricalPrice}
           date={date}
+          symbol={stockPrice[0].symbol}
         />
         <strong><p>In the News:</p></strong>
         <Stack direction="row" spacing={2}>

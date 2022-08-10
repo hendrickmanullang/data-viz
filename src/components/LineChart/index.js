@@ -1,10 +1,10 @@
 import Chart from 'react-apexcharts'
 
-const LineChart = ({price, date}) => {
+const LineChart = ({price, date, symbol}) => {
 
   const series = [ //data on the y-axis
     {
-      name: "Stock price",
+      name: `${symbol}`,
       data: [...price].reverse() // endpoint outputs date and price in reverse chronological order
     }
   ];
