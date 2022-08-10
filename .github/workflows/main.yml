@@ -18,9 +18,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # Install depepndencies (unit tests to be added later)
       - name: Install dependencies
-        run: npm install
+        run: npm install && npm run test
 
       - name: Build React App
         run: REACT_APP_API_KEY=${{ secrets.API_KEY }} npm run build
