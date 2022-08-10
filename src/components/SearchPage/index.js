@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_API_KEY
 const SearchPage = () => {
   const [queryString, setQueryString] = useState('')
   const [stockList, setStockList] = useState([])
-  const url= `https://financialmodelingprep.com/api/v3/search-name?query=${queryString}&limit=50&exchange=NASDAQ&apikey=${API_KEY}`
+  const url= `https://financialmodelingprep.com/api/v3/search-name?query=${queryString}&limit=20&exchange=NASDAQ&apikey=${API_KEY}`
   const handleSubmit = (e) => {
     e.preventDefault()
     loadCompanySearchResults()

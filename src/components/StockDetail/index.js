@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Button, ButtonGroup, CircularProgress, Stack} from "@mui/material"
+import { Button, ButtonGroup, Container, CircularProgress, Stack} from "@mui/material"
 import StockNews from "../StockNews"
 import LineChart from "../LineChart"
 const API_KEY = process.env.REACT_APP_API_KEY
@@ -63,6 +63,7 @@ const StockDetail = () => {
   if (stockPrice && stockNews) {
     return (
       <>
+      <Container>
         <h1>{stockPrice[0].name}</h1>
         View: <ButtonGroup variant="text" aria-label="stock price time frame">
           <Button onClick={() => handleHistoryView(1)}>Month</Button>
@@ -73,6 +74,7 @@ const StockDetail = () => {
           price={stockHistoricalPrice}
           date={date}
         />
+      </Container>
         <strong><p>In the News:</p></strong>
         <Stack direction="row" spacing={2}>
           {
