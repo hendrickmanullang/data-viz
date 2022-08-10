@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_API_KEY
 const SearchPage = () => {
   const [queryString, setQueryString] = useState('')
   const [stockList, setStockList] = useState([])
-  const url= `https://financialmodelingprep.com/api/v3/search-name?query=${queryString}&limit=20&exchange=NASDAQ&apikey=${API_KEY}`
+  const url= `https://financialmodelingprep.com/api/v3/search-name?query=${queryString}&limit=50&exchange=NASDAQ&apikey=${API_KEY}`
   const handleSubmit = (e) => {
     e.preventDefault()
     loadCompanySearchResults()
@@ -34,9 +34,9 @@ const SearchPage = () => {
         </form>
     </Stack>
 
-    <Grid container spacing={0}>
-
-      <Grid item xs={4}>
+    <Grid container spacing={2}>
+      <Grid item xs={3}>
+        <p>Search results <strong>({stockList.length})</strong>:</p>
         {
           stockList.map((stock, index) => (
             <SearchResults
@@ -48,7 +48,7 @@ const SearchPage = () => {
         }
       </Grid>
 
-      <Grid item xs={8}>
+      <Grid item xs={9}>
         <Outlet/>
       </Grid>
 
