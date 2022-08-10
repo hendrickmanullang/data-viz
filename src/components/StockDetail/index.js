@@ -76,12 +76,15 @@ const StockDetail = () => {
         <strong><p>In the News:</p></strong>
         <Stack direction="row" spacing={2}>
           {
-            stockNews.map((article, index) => (
-            <StockNews
-              key={index}
-              title={article.title}
-              url={article.url}/>
-            ))
+            (stockNews.length > 0) ?
+              (stockNews.map((article, index) =>
+                (<StockNews
+                  key={index}
+                  title={article.title}
+                  url={article.url}
+                  />)
+              )) :
+            <p><em>No recent articles</em></p>
           }
         </Stack>
       </>
