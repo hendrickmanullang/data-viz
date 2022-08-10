@@ -1,4 +1,4 @@
-import { TextField, Stack, Button, Grid } from "@mui/material"
+import { Box, TextField, Stack, Button, Grid } from "@mui/material"
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
 import SearchResults from "../SearchResult"
@@ -22,7 +22,11 @@ const SearchPage = () => {
 
   return (
   <>
-    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+    <Box
+      sx={{
+        backgroundColor: '#B5B682',
+      }}>
+      <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
         <h1>Look up a company:</h1>
         <form onSubmit={handleSubmit}>
           <Stack direction="row">
@@ -32,7 +36,8 @@ const SearchPage = () => {
             <Button type="submit" variant="contained">Search</Button>
           </Stack>
         </form>
-    </Stack>
+      </Stack>
+    </Box>
 
     <Grid container spacing={2}>
       <Grid item xs={3}>
