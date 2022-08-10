@@ -1,6 +1,7 @@
 import Stack from "@mui/material/Stack"
 import { Link } from "react-router-dom"
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import { Box, Container } from "@mui/material"
 
 const SearchResults = (
   {
@@ -10,9 +11,8 @@ const SearchResults = (
 ) => {
 
   return (
-    <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={1}>
-      <p>{name}</p>
-      <p><strong>Symbol:</strong> {symbol}</p>
+    <Stack direction="row" justifyContent="space-between" spacing={1}>
+      <Container>{name} <strong>({symbol})</strong></Container>
       <Link to={`/${symbol}`}><KeyboardArrowRightIcon/></Link>
     </Stack>
   )
