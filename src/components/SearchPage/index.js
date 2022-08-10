@@ -22,48 +22,34 @@ const SearchPage = () => {
 
   return (
   <>
-    <Stack
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      spacing={2}
-      >
-    <h1>Look up a company:</h1>
-    <form onSubmit={handleSubmit}>
-    <TextField
-      id="standard-basic"
-      label="Company name"
-      variant="standard"
-      onChange={(e) => setQueryString(e.target.value)}
-    />
-    <Button
-      type="submit"
-      variant="contained"
-      >Search</Button>
-    </form>
-    </Stack>
-    <Stack
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      spacing={0}
-      >
-    </Stack>
-    <Grid container spacing={0}>
-      <Grid item xs={4}>
-    {
-      stockList.map((stock, index) => (
-        <SearchResults
-          key={index}
-          name={stock.name}
-          symbol={stock.symbol}
+    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} >
+      <h1>Look up a company:</h1>
+      <form onSubmit={handleSubmit}>
+        <TextField id="standard-basic" label="Company name" variant="standard"
+          onChange={(e) => setQueryString(e.target.value)}
         />
-      ))
-    }
+        <Button type="submit" variant="contained">Search</Button>
+      </form>
+    </Stack>
+
+    <Grid container spacing={0}>
+
+      <Grid item xs={4}>
+        {
+          stockList.map((stock, index) => (
+            <SearchResults
+              key={index}
+              name={stock.name}
+              symbol={stock.symbol}
+            />
+          ))
+        }
       </Grid>
+
       <Grid item xs={8}>
         <Outlet/>
       </Grid>
+
     </Grid>
   </>
   )

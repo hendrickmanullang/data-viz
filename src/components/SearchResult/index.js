@@ -10,12 +10,7 @@ const SearchResults = (
 ) => {
 
   return (
-    <Stack
-      direction="row"
-      justifyContent="flex-start"
-      alignItems="center"
-      spacing={1}
-    >
+    <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={1}>
       <p>{name}</p>
       <p><strong>Symbol:</strong> {symbol}</p>
       <Link to={`/${symbol}`}><KeyboardArrowRightIcon/></Link>
