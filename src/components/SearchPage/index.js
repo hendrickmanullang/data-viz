@@ -1,10 +1,7 @@
-import { TextField } from "@mui/material"
+import { TextField, Stack, Button, Grid } from "@mui/material"
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
-import Stack from "@mui/material/Stack"
-import Button from "@mui/material/Button"
 import SearchResults from "../SearchResult"
-import Grid from '@mui/material/Grid'
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const SearchPage = () => {

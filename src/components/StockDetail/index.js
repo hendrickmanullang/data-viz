@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { ButtonGroup, Card, CardActions, Stack, Typography } from "@mui/material"
+import StockNews from "../StockNews"
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import LineChart from "../LineChart"
@@ -78,16 +79,10 @@ const StockDetail = () => {
         <Stack direction="row" spacing={2}>
           {
             stockNews.map((article, index) => (
-            <Card sx={{ width: '100%' }} key={index}>
-              <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {article.title}
-              </Typography>
-                <CardActions>
-                  <Button size="small" href={article.url}>Read More</Button>
-                </CardActions>
-              </CardContent>
-            </Card>
+            <StockNews
+              index={index}
+              title={article.title}
+              url={article.url}/>
             ))
           }
         </Stack>
