@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Button, ButtonGroup, Stack} from "@mui/material"
+import { Button, ButtonGroup, CircularProgress, Stack} from "@mui/material"
 import StockNews from "../StockNews"
 import LineChart from "../LineChart"
 const API_KEY = process.env.REACT_APP_API_KEY
@@ -90,7 +90,7 @@ const StockDetail = () => {
       </>
     )
     } else {
-    return (<p>loading...</p>)
+    return (<CircularProgress />)
   }
 }
 
