@@ -80,7 +80,7 @@ const StockDetail = () => {
           {
             stockNews.map((article, index) => (
             <StockNews
-              index={index}
+              key={index}
               title={article.title}
               url={article.url}/>
             ))
