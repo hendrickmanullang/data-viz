@@ -51,12 +51,12 @@ const StockDetail = () => {
       .catch((newsError) => console.error(newsError))
 
     fetch(historicalPriceEndPoint)
-    .then((historicalpPriceResponse) => historicalpPriceResponse.json())
-    .then((priceHistoricalData) => {
-      setStockHistoricalPrice(priceHistoricalData.historical.map((item) => item.close))
-      setDate(priceHistoricalData.historical.map((item) => item.date))
-      })
-    .catch((historicalPriceError) => console.error(historicalPriceError))
+      .then((historicalpPriceResponse) => historicalpPriceResponse.json())
+      .then((priceHistoricalData) => {
+        setStockHistoricalPrice(priceHistoricalData.historical.map((item) => item.close))
+        setDate(priceHistoricalData.historical.map((item) => item.date))
+        })
+      .catch((historicalPriceError) => console.error(historicalPriceError))
 
   }, [ticker, currentDateISO, searchHistoricalStartDate])
 
