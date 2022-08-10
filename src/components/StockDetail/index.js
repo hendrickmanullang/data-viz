@@ -1,9 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { ButtonGroup, Card, CardActions, Stack, Typography } from "@mui/material"
+import { Button, ButtonGroup, Stack} from "@mui/material"
 import StockNews from "../StockNews"
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
 import LineChart from "../LineChart"
 const API_KEY = process.env.REACT_APP_API_KEY
 
