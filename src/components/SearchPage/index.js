@@ -36,7 +36,7 @@ const SearchPage = () => {
 
     <Grid container spacing={2}>
       <Grid item xs={3}>
-        <p>Search results <strong>({stockList.length})</strong>:</p>
+        { stockList.length > 0 && (<p>Search results <strong>({stockList.length})</strong>:</p>)}
         {
           stockList.map((stock, index) => (
             <SearchResults
